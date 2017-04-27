@@ -1,0 +1,16 @@
+env:
+  global:
+    - NOUVOLA_PLAN_ID=4609
+    # NOUVOLA_API_KEY env variable encrypted
+    - secure: QbUdwdZzHSnFlKPxcsjJMp/qyICw4DPa2+VkqG9G42rYGCIAbecTVdIC933mljlJ1Z+OKhxk2zEevrczi7FxqLR+ts16AtvXHgRgwdmLLWmxX3trjfXDSWXOE5+GNHYmaZOQLm8qQjouogP8Kkx8njYj9Uut4ONaNZUsHvVroVSyfwiPktyKjQP8iEIzaV/Jb1wWwLHsDf1n4GaCcbm1VuloxoNuJkG5VftcnMqULWyN9YeZTxQ43PiflTWFqBHV9hPpbVU+N5Jt1kGfhBlj6FdiIiB69KrXXd/ooBwz7UuuNgPyXEjZtUC0tp0CzZlovnNPBdrMRiZ/yE1ZgbuDbQ==
+
+build:
+  ci:
+    # Install JQ for parsing JSON response from Nouvola API
+    - sudo apt-get update
+    - sudo apt-get install jq
+    # Get test_id from Nouvola
+    - TEST_ID = $(curl -X POST -H 'Content-Type: application/json' -H 'x-api: $NOUVOLA_API_KEY' https://divecloud.nouvola.com/api/v1/plans/$NOUVOLA_PLAN_ID/run --silent | jq -r '.test_id')
+    # Poll test run
+    - curl -X GET -H 'Content-Type: application/json' -H 'x-api: $NOUVOLA_API_KEY' https://divecloud.nouvola.com/api/v1/test_instances/$TEST_ID --silent
+
