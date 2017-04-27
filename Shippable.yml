@@ -10,7 +10,7 @@ build:
     - sudo apt-get update
     - sudo apt-get install jq
     # Get test_id from Nouvola
-    - TEST_ID = $(curl -X POST -H 'Content-Type: application/json' -H 'x-api: $NOUVOLA_API_KEY' https://divecloud.nouvola.com/api/v1/plans/$NOUVOLA_PLAN_ID/run --silent | jq -r '.test_id')
+    - TEST_ID = $(curl -X POST -H 'Content-Type: application/json' -H 'x-api:$NOUVOLA_API_KEY' https://divecloud.nouvola.com/api/v1/plans/$NOUVOLA_PLAN_ID/run --silent | jq -r '.test_id')
     # Poll test run
-    - curl -X GET -H 'Content-Type: application/json' -H 'x-api: $NOUVOLA_API_KEY' https://divecloud.nouvola.com/api/v1/test_instances/$TEST_ID --silent
+    - curl -X GET -H 'Content-Type: application/json' -H 'x-api:$NOUVOLA_API_KEY' https://divecloud.nouvola.com/api/v1/test_instances/$TEST_ID --silent
 
