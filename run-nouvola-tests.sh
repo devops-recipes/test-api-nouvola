@@ -1,6 +1,8 @@
 #! /bin/bash -e
 
 echo "Running tests on Nouvola cloud..."
+pwd
+ls -l
 
 # Install JQ for parsing JSON response from Nouvola API
 sudo apt-get update
