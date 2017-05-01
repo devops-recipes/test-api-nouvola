@@ -13,9 +13,8 @@ jobs:
       - IN: github-repo
         switch: off
       - TASK:
-        - script: echo "API KEY "$NOUVOLA_API_KEY
-        - script: echo "PLAN ID "$NOUVOLA_PLAN_ID
-        - script: echo $NOUVOLA_PLAN_ID
+        - script: echo "API KEY "$TESTAPINOUVOLAAPIPARAMS_PARAMS_NOUVOLA_API_KEY
+        - script: echo "PLAN ID "$TESTAPINOUVOLAAPIPARAMS_PARAMS_NOUVOLA_PLAN_ID
         - script: ls -l . $GITHUBREPO_PATH/gitRepo/run-nouvola-tests.sh
         - script: . $GITHUBREPO_PATH/gitRepo/run-nouvola-tests.sh
     flags:
