@@ -10,8 +10,11 @@ jobs:
     type: runSh
     steps:
       - IN: test-api-nouvola-api-params
+      - IN: dr-github
+        switch: off
       - TASK:
-        - script: ls -R $SHIPPABLE_BUILD_DIR
-        - script: ./IN/test-api-nouvola/gitRepo/run-nouvola-test.sh
+        - script: ls -R $DRGITHUB_PATH
+        - script: echo $$DRGITHUB_PATH 
+        - script: . $DRGITHUB_PATH/gitRepo/run-nouvola-test.sh
     flags:
       - test-api-nouvola
