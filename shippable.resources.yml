@@ -10,11 +10,12 @@ resources:
     flags:
       - test-api-nouvola
 
-  - name: test-api-nouvola-api-params
+  - name: api
     type: params
     flags:
       - test-api-nouvola
     version:
       params:
         NOUVOLA_PLAN_ID: "4609"
+        #secure NOUVOLA_API_KEY environment variable
         secure: QbUdwdZzHSnFlKPxcsjJMp/qyICw4DPa2+VkqG9G42rYGCIAbecTVdIC933mljlJ1Z+OKhxk2zEevrczi7FxqLR+ts16AtvXHgRgwdmLLWmxX3trjfXDSWXOE5+GNHYmaZOQLm8qQjouogP8Kkx8njYj9Uut4ONaNZUsHvVroVSyfwiPktyKjQP8iEIzaV/Jb1wWwLHsDf1n4GaCcbm1VuloxoNuJkG5VftcnMqULWyN9YeZTxQ43PiflTWFqBHV9hPpbVU+N5Jt1kGfhBlj6FdiIiB69KrXXd/ooBwz7UuuNgPyXEjZtUC0tp0CzZlovnNPBdrMRiZ/yE1ZgbuDbQ==
