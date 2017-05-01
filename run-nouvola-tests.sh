@@ -1,8 +1,8 @@
 #! /bin/bash -e
 
 echo "Running tests on Nouvola cloud..."
-pwd
-ls -l
+echo "API KEY"$NOUVOLA_API_KEY
+echo "PLAN ID"$NOUVOLA_PLAN_ID
 
 # Install JQ for parsing JSON response from Nouvola API
 sudo apt-get update
