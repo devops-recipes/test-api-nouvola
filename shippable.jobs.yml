@@ -9,7 +9,7 @@ jobs:
   - name: test-api-nouvola-run-tests
     type: runSh
     steps:
-      - IN: test-api-nouvola-api-params
+      - IN: api
       - IN: github-repo
         switch: off
       - TASK:
