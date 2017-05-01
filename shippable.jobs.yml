@@ -11,6 +11,8 @@ jobs:
     steps:
       - IN: test-api-nouvola-api-params
       - TASK:
-        - script: ./run-nouvola-test.sh
+        - script: $(SHIPPABLE_BUILD_DIR)/run-nouvola-test.sh
+        - script: $(SHIPPABLE_REPO_DIR)/run-nouvola-test.sh
+        - script: pwd && ls -l
     flags:
       - test-api-nouvola
