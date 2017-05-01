@@ -1,5 +1,15 @@
 resources:
 
+  # GitHub repo holding scripts to be used in runsh pipeline job
+  - name: github-repo
+    type: gitRepo
+    integration: dr-github # replace with your GitHub integration name
+    pointer:
+      sourceName: devops-recipes/test-api-nouvola # replace with source code location (e.g. GitHub) where you cloned this sample project
+      branch: master
+    flags:
+      - test-api-nouvola
+
   - name: test-api-nouvola-api-params
     type: params
     flags:
