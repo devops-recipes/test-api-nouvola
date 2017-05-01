@@ -13,8 +13,7 @@ jobs:
       - IN: github-repo
         switch: off
       - TASK:
-        - script: ls -R $GITHUBREPO_PATH
-        - script: echo $GITHUBREPO_PATH
-        - script: . $GITHUBREPO_PATH/gitRepo/run-nouvola-test.sh
+        - script: ls -l ./$GITHUBREPO_PATH/gitRepo/run-nouvola-test.sh
+        - script: ./$GITHUBREPO_PATH/gitRepo/run-nouvola-test.sh
     flags:
       - test-api-nouvola
