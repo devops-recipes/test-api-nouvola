@@ -11,12 +11,7 @@ jobs:
     steps:
       - IN: test-api-nouvola-api-params
       - TASK:
-        - script: pwd && ls -l
-        - script: echo $SHIPPABLE_BUILD_DIR
-        - script: echo $SHIPPABLE_REPO_DIR
-        - script: ls -l $SHIPPABLE_BUILD_DIR
-        - script: ls -l $SHIPPABLE_REPO_DIR
-        - script: $SHIPPABLE_BUILD_DIR/run-nouvola-test.sh
-        - script: $SHIPPABLE_REPO_DIR/run-nouvola-test.sh
+        - script: ls -R $SHIPPABLE_BUILD_DIR
+        - script: ./IN/test-api-nouvola/gitRepo/run-nouvola-test.sh
     flags:
       - test-api-nouvola
