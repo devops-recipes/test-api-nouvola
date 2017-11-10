@@ -19,3 +19,26 @@ resources:
         NOUVOLA_PLAN_ID: "4609"
         #secure NOUVOLA_API_KEY environment variable
         secure: QbUdwdZzHSnFlKPxcsjJMp/qyICw4DPa2+VkqG9G42rYGCIAbecTVdIC933mljlJ1Z+OKhxk2zEevrczi7FxqLR+ts16AtvXHgRgwdmLLWmxX3trjfXDSWXOE5+GNHYmaZOQLm8qQjouogP8Kkx8njYj9Uut4ONaNZUsHvVroVSyfwiPktyKjQP8iEIzaV/Jb1wWwLHsDf1n4GaCcbm1VuloxoNuJkG5VftcnMqULWyN9YeZTxQ43PiflTWFqBHV9hPpbVU+N5Jt1kGfhBlj6FdiIiB69KrXXd/ooBwz7UuuNgPyXEjZtUC0tp0CzZlovnNPBdrMRiZ/yE1ZgbuDbQ==
+
+jobs:
+
+# jobs for the Nouvola sample application
+
+################################
+
+# add pipeline job
+# Run API tests on Nouvola cloud
+  - name: test-api-nouvola-run-tests
+    type: runSh
+    steps:
+      - IN: api
+      - IN: github-repo
+        switch: off
+      - TASK:
+        #key value pairs declared in PARAMS resources are exported as
+        #${RESOURCE NAME}_PARAMS_{KEY}
+        - script: echo "API KEY "$API_PARAMS_NOUVOLA_API_KEY
+        - script: echo "PLAN ID "$API_PARAMS_NOUVOLA_PLAN_ID
+        - script: . $GITHUBREPO_PATH/gitRepo/run-nouvola-tests.sh
+    flags:
+      - test-api-nouvola
